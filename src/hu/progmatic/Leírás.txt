@@ -1,0 +1,11 @@
+Film adatbázis kezelő
+
+Konzolon a felhasználó kikeresheti a kívánt filmet.
+Filmről bejönne egy részletesebb tartalom, szereplők.
+Ha kíváncsi lenne a felhasználó a felsorolt szereplők további filmjeire, akkor arra is kereshetne.
+Adott filmet értékelheti a felhasználó. Metódust írni mögé, amivel a pontszámokból átlagos értékelést jelenítenénk meg.
+Ha nem találja a filmet a rendszerbe("Sajnos még nincs benne a rendszerbe"), user is létrehozhat filmet.
+Lenne még egy értékelés minden filmre, mégpedig a felhasználó nyomna egy plusz 1-et vagy minusz 1-et a filmre. Ez a counter
+pedig tudna minuszba és pluszba is menni (mint amikor a facebookon nyomunk egy like-ot egy valamire).
+Elején csak egy minimális film mennyiség lenne, de később szeretnék adatbázisból dolgozni. Egyenlőre nem tudom hogyan lehet ezt
+adatbázisból működtetni és ezt honnan szerzem be, és hogyan valósítom meg valami gusztusosabb konzolos kialakításban...
