@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Main {
 
@@ -14,6 +16,8 @@ public class Main {
 
             System.out.println("Number of movies: " + movies.size());
             System.out.println(searchByName(movies, "kiskutya"));
+
+            System.out.println(totalMoviesByGenreCounter(movies));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -34,7 +38,6 @@ public class Main {
                     Movie movie = new Movie(line);
                     movies.add(movie);
                 } catch (Exception e) {
-
                 }
             }
         }
@@ -48,5 +51,13 @@ public class Main {
             }
         }
         return chosenMovies;
+    }
+    public static Map<String, Integer> totalMoviesByGenreCounter(List<Movie> movies){
+        Map<String, Integer> totalMoviesByGenre = new TreeMap<>();
+        for (Movie movie : movies){
+            int total = totalMoviesByGenre.getOrDefault(movie.getGenre(), 0) + 1;
+            totalMoviesByGenre.put(movie.getGenre(), total);
+        }
+        return totalMoviesByGenre;
     }
 }
