@@ -2,7 +2,7 @@ package hu.progmatic;
 
 import java.util.Objects;
 
-public class Film {
+public class Movie {
     private String title;
     private String originalTitle;
     private String genre;
@@ -10,12 +10,12 @@ public class Film {
     private String manufacturer;
     private String producer;
     private String actor;
-    private AgeLimit ageLimit;
+    private String ageLimit;
 
-    public Film() {
+    public Movie() {
     }
 
-    public Film(String title, String originalTitle, String genre, int madeYear, String manufacturer, String producer, String actor, AgeLimit ageLimit) {
+    public Movie(String title, String originalTitle, String genre, int madeYear, String manufacturer, String producer, String actor, String ageLimit) {
         this.title = title;
         this.originalTitle = originalTitle;
         this.genre = genre;
@@ -25,7 +25,7 @@ public class Film {
         this.actor = actor;
         this.ageLimit = ageLimit;
     }
-    public Film(String line){
+    public Movie(String line){
         String[] parts = line.split(";");
         this.title = parts[0];
         this.originalTitle = parts[1];
@@ -34,7 +34,7 @@ public class Film {
         this.manufacturer = parts[4];
         this.producer = parts[5];
         this.actor = parts[6];
-        this.ageLimit = AgeLimit.valueOf(parts[7]);
+        this.ageLimit = parts[7];
     }
 
     public String getTitle() {
@@ -93,34 +93,26 @@ public class Film {
         this.actor = actor;
     }
 
-    public AgeLimit getAgeLimit() {
+    public String getAgeLimit() {
         return ageLimit;
     }
 
-    public void setAgeLimit(AgeLimit ageLimit) {
+    public void setAgeLimit(String ageLimit) {
         this.ageLimit = ageLimit;
     }
 
     @Override
     public String toString() {
-        return "Film{" +
-                "title='" + title + '\'' +
-                ", originalTitle='" + originalTitle + '\'' +
-                ", genre='" + genre + '\'' +
-                ", madeYear=" + madeYear +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", producer='" + producer + '\'' +
-                ", actor='" + actor + '\'' +
-                ", ageLimit=" + ageLimit +
-                '}';
+        return title + " " + originalTitle + " " + genre + " " + madeYear + " " + manufacturer + " " + producer + " " + actor + " " + ageLimit + "\n";
+
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Film film = (Film) o;
-        return madeYear == film.madeYear && title.equals(film.title) && originalTitle.equals(film.originalTitle) && manufacturer.equals(film.manufacturer) && producer.equals(film.producer) && actor.equals(film.actor);
+        Movie movie = (Movie) o;
+        return madeYear == movie.madeYear && title.equals(movie.title) && originalTitle.equals(movie.originalTitle) && manufacturer.equals(movie.manufacturer) && producer.equals(movie.producer) && actor.equals(movie.actor);
     }
 
     @Override

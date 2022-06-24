@@ -1,6 +1,7 @@
 package hu.progmatic;
 
 public enum AgeLimit {
+
     UNDEFINED(""),
     I("Korhatár nélkül"),
     II("6 éven aluliak számára nem ajánlott műsorszámok"),
@@ -14,14 +15,15 @@ public enum AgeLimit {
         this.value = value;
     }
 
-    public static AgeLimit getByValue(String value){
-        for(AgeLimit ageLimit : values()){
-            if(ageLimit.value.equals(value)){
+    public static AgeLimit getByValue(String value) {
+        for (AgeLimit ageLimit : values()) {
+            if (ageLimit.value.equals(value)) {
                 return ageLimit;
             }
         }
         return UNDEFINED;
     }
-
-
 }
+
+
+
