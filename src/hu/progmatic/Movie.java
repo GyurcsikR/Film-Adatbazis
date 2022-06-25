@@ -27,6 +27,7 @@ public class Movie {
     }
     public Movie(String line){
         String[] parts = line.split(";");
+        String[] actors = parts[6].split("/");
         this.title = parts[0];
         this.originalTitle = parts[1];
         this.genre = parts[2];
