@@ -103,7 +103,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return title + " " + originalTitle + " " + genre + " " + madeYear + " " + manufacturer + " " + producer + " " + actor + " " + ageLimit + "\n";
+        return title + ", " + originalTitle + ", " + genre + ", " + madeYear + ", " + manufacturer + ", " + producer + ", " + actor + ", " + ageLimit + "\n";
 
     }
 

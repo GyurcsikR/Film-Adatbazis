@@ -15,9 +15,13 @@ public class Main {
             List<Movie> movies = loadMovies("src/hu/progmatic/FilmAdatbázisFormázott.csv");
 
             System.out.println("Number of movies: " + movies.size());
-            System.out.println(searchByName(movies, "kiskutya"));
+            System.out.println(searchByName(movies, "2012"));
 
             System.out.println(totalMoviesByGenreCounter(movies));
+
+            System.out.print("A legöregebb film az adatbázisban: ");
+            System.out.print(mostOldMovie(movies));
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,9 +59,20 @@ public class Main {
     public static Map<String, Integer> totalMoviesByGenreCounter(List<Movie> movies){
         Map<String, Integer> totalMoviesByGenre = new TreeMap<>();
         for (Movie movie : movies){
-            int total = totalMoviesByGenre.getOrDefault(movie.getGenre(), 0) + 1;
-            totalMoviesByGenre.put(movie.getGenre(), total);
+            int total = totalMoviesByGenre.getOrDefault(movie.getGenre(), 0);
+            totalMoviesByGenre.put(movie.getGenre(), total + 1);
         }
         return totalMoviesByGenre;
+    }
+    public static Movie mostOldMovie(List<Movie> movies){
+        Movie oldestMovie = new Movie();
+        int oldest = Integer.MAX_VALUE;
+        for (Movie movie : movies){
+            if(movie.getMadeYear() < oldest){
+                oldest = movie.getMadeYear();
+                oldestMovie = movie;
+            }
+        }
+        return oldestMovie;
     }
 }
