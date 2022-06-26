@@ -3,24 +3,27 @@ package hu.progmatic;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         try {
+
             List<Movie> movies = loadMovies("src/hu/progmatic/FilmAdatbázisFormázott.csv");
 
             System.out.println("Number of movies: " + movies.size());
+
             System.out.println(searchByName(movies, "2012"));
 
             System.out.println(totalMoviesByGenreCounter(movies));
 
             System.out.print("A legöregebb film az adatbázisban: ");
             System.out.print(mostOldMovie(movies));
+
+            System.out.println(searchByMadeYear(movies, 2010));
+
+            System.out.println(searchByProducer(movies, "Robert wise"));
 
 
         } catch (IOException e) {
@@ -74,5 +77,23 @@ public class Main {
             }
         }
         return oldestMovie;
+    }
+    public static List<Movie> searchByMadeYear(List<Movie> movies, int chosenYear){
+        List<Movie> chosenMovies = new ArrayList<>();
+        for (Movie movie : movies){
+            if(movie.getMadeYear() == chosenYear){
+                chosenMovies.add(movie);
+            }
+        }
+        return chosenMovies;
+    }
+    public static List<Movie> searchByProducer(List<Movie> movies, String name){
+        List<Movie> chosenMovies = new ArrayList<>();
+        for (Movie movie : movies){
+            if(movie.getProducer().equalsIgnoreCase(name)){
+                chosenMovies.add(movie);
+            }
+        }
+        return chosenMovies;
     }
 }
