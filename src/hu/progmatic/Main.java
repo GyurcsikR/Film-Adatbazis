@@ -25,6 +25,8 @@ public class Main {
 
             System.out.println(searchByProducer(movies, "Robert wise"));
 
+            System.out.println(searchByActor(movies, "George Clooney"));
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -91,6 +93,15 @@ public class Main {
         List<Movie> chosenMovies = new ArrayList<>();
         for (Movie movie : movies){
             if(movie.getProducer().equalsIgnoreCase(name)){
+                chosenMovies.add(movie);
+            }
+        }
+        return chosenMovies;
+    }
+    public static List<Movie> searchByActor(List<Movie> movies, String name){
+        List<Movie> chosenMovies = new ArrayList<>();
+        for (Movie movie : movies){
+            if(movie.getActor().contains(name)){
                 chosenMovies.add(movie);
             }
         }
